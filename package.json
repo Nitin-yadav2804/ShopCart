@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "nodeman": "^1.1.2"
+    "nodeman": "^1.1.2",
+    "response-time": "^2.3.4"
   }
 }
