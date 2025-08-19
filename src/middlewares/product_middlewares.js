@@ -1,4 +1,4 @@
-const { StatusCodes, ReasonPhrases } = require('http-status-code')
+const { StatusCodes, ReasonPhrases } = require('http-status-codes')
 
 const badRequest = require("../errors/bad_request_error")
 const errorResponse = require("../utils/error_response")
