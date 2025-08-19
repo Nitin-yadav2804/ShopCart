@@ -1,11 +1,11 @@
 const express = require("express");
 
 const {
-  productControllerV2,
+  createProduct
 } = require("../../controllers/product_controller.js");
 
 const productRouterV2 = express.Router();
 
-productRouterV2.get("/", productControllerV2);
+productRouterV2.get("/", createProduct);
 
 module.exports = productRouterV2;

@@ -1,4 +1,4 @@
-function pingControllerV1(request, response) {
+function pingController(request, response) {
     return response.json({message: 'Pong from v1 API'})
 }
 
@@ -7,6 +7,6 @@ function pingControllerV2(request, response) {
 }
 
 module.exports = {
-    pingControllerV1,
+    pingController,
     pingControllerV2
 }
