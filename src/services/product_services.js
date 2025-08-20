@@ -1,29 +1,32 @@
-// in memory db
 
+// in memory db
 const products = [];
 
+class ProductService {
 
-
-function createProduct(product) {
-    const newProduct = {
-        id: products.length,
-        ...product
+    constructor(repository) {
+        this.repository = repository
     }
-    products.push(newProduct);
-    return newProduct;
 
+    createProduct(product) {
+        const newProduct = {
+            id: products.length,
+            ...product
+        }
+        products.push(newProduct);
+        return newProduct;
+
+    }
+
+    async getProducts() {
+        const response = await repository.getProducts();
+        return response.data;
+    }
+
+    getProduct(id) {
+        return products.filter(product => product.id == id)[0];
+    }
 }
 
-function getProducts() {
-    return products;
-}
 
-function getProduct(id) {
-    return products.filter(product => product.id == id)[0];
-}
-
-module.exports = {
-    createProduct,
-    getProducts,
-    getProduct
-}
+module.exports = ProductService;

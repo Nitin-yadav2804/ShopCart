@@ -1,12 +1,15 @@
 const { StatusCodes, ReasonPhrases } = require('http-status-codes')
 
-const ProductService = require('../services/product_services.js')
+const ProductService = require('../services/product_services.js');
+const FakeStoreRepository = require('../repositories/fake_store_repository.js');
+
+const productService = new ProductService(new FakeStoreRepository())
 
 function createProduct(req, res) {
 
     try {
         
-        const response = ProductService.createProduct(req.body);
+        const response = productService.createProduct(req.body);
 
         return res
                 .status(StatusCodes.CREATED)
@@ -21,9 +24,9 @@ function createProduct(req, res) {
     }
 }
 
-function getProducts(req, res) {
+async function getProducts(req, res) {
     try {
-        const response = ProductService.getProducts();
+        const response = await productService.getProducts();
 
         return res
                 .status(StatusCodes.OK)
@@ -38,9 +41,9 @@ function getProducts(req, res) {
     }
 }
 
-function getProduct(req,res) {
+async function getProduct(req,res) {
     try {
-        const response = ProductService.getProduct(req.params.id);
+        const response = await productService.getProduct(req.params.id);
 
         return res
                 .status(StatusCodes.OK)
