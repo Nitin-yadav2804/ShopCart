@@ -26,7 +26,7 @@ app.use("/api", ApiRouter);
 
 app.listen(PORT, async () => {
   console.log(`Server for ShopCart is UP on PORT ${PORT}`);
-  await db.sync();
+  await db.sync({ alter: true });
   console.log("DB Connected");
 
   // const res = await Category.create({

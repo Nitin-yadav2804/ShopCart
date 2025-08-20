@@ -7,6 +7,7 @@ const Category = db.define('category', {
     name: {
         type: Sequelize.STRING,
         allowNULL: false,
+        unique: true,
     },
     description: {
         type: Sequelize.STRING,
