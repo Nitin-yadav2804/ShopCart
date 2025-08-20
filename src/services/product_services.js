@@ -5,7 +5,7 @@ const products = [];
 class ProductService {
 
     constructor(repository) {
-        this.repository = repository
+        this.repository = repository;
     }
 
     createProduct(product) {
@@ -19,12 +19,13 @@ class ProductService {
     }
 
     async getProducts() {
-        const response = await repository.getProducts();
-        return response.data;
+        const response = await this.repository.getProducts();
+        return response;
     }
 
-    getProduct(id) {
-        return products.filter(product => product.id == id)[0];
+    async getProduct(id) {
+        const response = await this.repository.getProduct(id);
+        return response;
     }
 }
 
