@@ -24,8 +24,48 @@ async function createCategory(req, res) {
     }
 }
 
+async function getAllCategories(req, res) {
+
+    try {
+        
+        const response = await categoryService.getAllCategories();
+
+        return res
+                .status(StatusCodes.OK)
+                .json({
+                    success: true,
+                    error: {},
+                    message: "Successfully Fetched Categories",
+                    data: response
+         })
+    } catch (error) {
+        console.log("Something went wrong", error);
+    }
+}
+
+async function getCategory(req, res) {
+
+    try {
+        
+        const response = await categoryService.getCategory(req.params.id);
+
+        return res
+                .status(StatusCodes.OK)
+                .json({
+                    success: true,
+                    error: {},
+                    message: "Successfully Fetched Category",
+                    data: response
+         })
+    } catch (error) {
+        console.log("Something went wrong", error);
+    }
+}
+
 
 module.exports = {
-    createCategory
+    createCategory,
+    getAllCategories,
+    getCategory
 }
  

@@ -6,12 +6,12 @@ const db = require('../config/db_config');
 const Category = db.define('category', {
     name: {
         type: Sequelize.STRING,
-        allowNULL: false,
+        allowNull: false,
         unique: true,
     },
     description: {
         type: Sequelize.STRING,
-        allowNULL: false,
+        allowNull: false,
     }
 })
 

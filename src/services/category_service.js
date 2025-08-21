@@ -9,6 +9,16 @@ class CategoryService {
         return response;
     }
 
+    async getAllCategories() {
+        const response = await this.repository.getCategories();
+        return response;
+    }
+
+    async getCategory(categoryId) {
+        const response = await this.repository.getCategory(categoryId);
+        return response;
+    }
+
 }
 
 
