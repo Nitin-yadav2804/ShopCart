@@ -19,6 +19,11 @@ class CategoryService {
         return response;
     }
 
+    async destroyCategory(categoryId) {
+        const response = await this.repository.destroyCategory(categoryId);
+        return response;
+    }
+
 }
 
 
